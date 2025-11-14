@@ -1,13 +1,12 @@
 import streamlit as st
-import pandas as pd
 
 # Importar clases de los módulos
-from modules.data_loader import DataLoader
-from modules.filters import DataFilter
-from modules.visualizations import Visualizer
-from modules.clustering import ClusterAnalyzer
-from modules.reports import ReportGenerator
-from modules.session_manager import SessionManager
+from modulos.data_loader import DataLoader
+from modulos.filters import DataFilter
+from modulos.visualizations import Visualizer
+from modulos.clustering import ClusterAnalyzer
+from modulos.reports import ReportGenerator
+from modulos.session_manager import SessionManager
 
 
 def main():
