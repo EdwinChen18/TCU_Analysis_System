@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import io
+
 
 class DataLoader:
     def load(self, uploaded_file):
