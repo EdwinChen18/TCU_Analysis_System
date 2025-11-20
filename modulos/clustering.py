@@ -7,7 +7,6 @@ class ClusterAnalyzer:
     def run_kmeans(self, df):
         st.subheader("Clustering con K-Means")
         numeric_df = df.select_dtypes(include=np.number)
-
         if numeric_df.shape[1] < 2:
             st.warning("Se necesitan al menos dos columnas numéricas para aplicar K-Means.")
             return df
@@ -17,13 +16,13 @@ class ClusterAnalyzer:
         clusters = model.fit_predict(numeric_df)
         df['Cluster'] = clusters
 
-        fig = px.scatter(
-            numeric_df,
-            x=numeric_df.columns[0],
-            y=numeric_df.columns[1],
-            color=df['Cluster'],
-            title="Resultados del Clustering K-Means"
-        )
+        x_col = st.selectbox("Selecciona la variable X", numeric_df.columns)
+        y_col = st.selectbox("Selecciona la variable Y", numeric_df.columns)
 
+        fig = px.scatter(
+            numeric_df, x=x_col, y=y_col, color=df['Cluster'],
+            title=f"Clustering K-Means: {x_col} vs {y_col}"
+        )
+        
         st.plotly_chart(fig, use_container_width=True)
         return df
