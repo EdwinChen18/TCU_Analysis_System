@@ -24,8 +24,5 @@ class Visualizer:
 
             st.plotly_chart(fig, width='stretch')
 
-            buffer = io.BytesIO()
-            fig.write_image(buffer, format="png")
-            st.download_button("Descargar gráfico PNG", buffer.getvalue(), file_name="grafico.png", mime="image/png")
         else:
             st.warning("No se encontraron columnas numéricas para graficar.")
