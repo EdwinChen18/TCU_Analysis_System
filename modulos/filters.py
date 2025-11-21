@@ -11,7 +11,7 @@ class DataFilter:
                 selected = st.sidebar.slider(f"{col}", min_val, max_val, (min_val, max_val))
                 df = df[df[col].between(selected[0], selected[1])]
             else:
-                options = st.sidebar.multiselect(f"{col}", df[col].unique())
+                options = st.sidebar.multiselect(f"{col}", df[col].dropna().unique().tolist())
                 if options:
                     df = df[df[col].isin(options)]
         st.sidebar.info(f"Filas después de filtrar: {df.shape[0]}")

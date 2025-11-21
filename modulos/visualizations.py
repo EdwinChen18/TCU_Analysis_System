@@ -22,7 +22,7 @@ class Visualizer:
             else:
                 fig = px.histogram(df, x=x_col, title=f"Histograma: {x_col}")
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             buffer = io.BytesIO()
             fig.write_image(buffer, format="png")
